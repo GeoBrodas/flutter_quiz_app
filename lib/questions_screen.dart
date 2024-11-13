@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app/ui/question_button.dart';
 
 class QuestionsScreen extends StatefulWidget {
   const QuestionsScreen({super.key});
@@ -12,9 +13,17 @@ class QuestionsScreen extends StatefulWidget {
 class _QuestionsScreenState extends State<QuestionsScreen> {
   @override
   Widget build(context) {
-    return const Center(
+    return Center(
       child: Column(mainAxisSize: MainAxisSize.min, children: [
-        Text('Questions Screen'),
+        const Text(
+          'How many times did Donald Trump win?',
+          style: TextStyle(color: Colors.white, fontSize: 15),
+        ),
+        const SizedBox(height: 20),
+        QuestionButton(message: 'Hellow world', onClick: () {}),
+        QuestionButton(message: 'Hellow world', onClick: () {}),
+        QuestionButton(message: 'Hellow world', onClick: () {}),
+        QuestionButton(message: 'Hellow world', onClick: () {}),
       ]),
     );
   }
