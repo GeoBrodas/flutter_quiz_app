@@ -12,10 +12,13 @@ class QuestionButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: onClick,
       style: ElevatedButton.styleFrom(
-          fixedSize: const Size(300, 20),
-          foregroundColor: Colors.white,
-          backgroundColor: Colors.deepPurple),
-      child: Text(message),
+        foregroundColor: Colors.white,
+        backgroundColor: Colors.deepPurple,
+      ),
+      child: Text(
+        message,
+        textAlign: TextAlign.center,
+      ),
     );
   }
 }
