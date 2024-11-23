@@ -7,4 +7,8 @@ var questions = [
       'What is the name of the gogogo?', ['Mama', 'jojoj', 'Hokiii', 'Naruto']),
   QuizQuestion(
       'What is the name of the foofof?', ['Mama', 'jojoj', 'Hokiii', 'Naruto']),
+  QuizQuestion(
+      'What is nuriapappaa?', ['Lalalal', 'jojoj', 'pappkfapf', 'Naruto']),
+  QuizQuestion(
+      'What is lolian in gogogo?', ['Polo', 'jordan', 'papi', 'muniano']),
 ];

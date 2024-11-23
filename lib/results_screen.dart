@@ -3,9 +3,11 @@ import 'package:quiz_app/data/questions.dart';
 import 'package:quiz_app/ui/questions_summary.dart';
 
 class ResultsScreen extends StatelessWidget {
-  const ResultsScreen({super.key, required this.chosenAnswers});
+  const ResultsScreen(
+      {super.key, required this.chosenAnswers, required this.restartQuiz});
 
   final List<String> chosenAnswers;
+  final void Function() restartQuiz;
 
   List<Map<String, Object>> getSummaryData() {
     final List<Map<String, Object>> summary = [];
@@ -24,13 +26,25 @@ class ResultsScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
+    final summaryData = getSummaryData();
+    final numTotalQuestions = questions.length;
+    final numCorrectQuestions = summaryData.where((data) {
+      return data['user_answer'] == data['correct_answer'];
+    }).length;
+
     return Center(
       child: Container(
         margin: const EdgeInsets.all(40),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text('You answered 3 out of 6 questions correctly'),
+            Text(
+              'You answered $numCorrectQuestions out of $numTotalQuestions questions correctly!',
+              style: const TextStyle(
+                  color: Color.fromARGB(255, 233, 203, 238),
+                  fontWeight: FontWeight.w700,
+                  fontSize: 18),
+            ),
             const SizedBox(
               height: 20,
             ),
@@ -38,9 +52,13 @@ class ResultsScreen extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            TextButton(
-              onPressed: () {},
-              child: const Text('Restart Quiz'),
+            TextButton.icon(
+              icon: const Icon(Icons.restart_alt),
+              onPressed: restartQuiz,
+              style: TextButton.styleFrom(
+                  foregroundColor: Colors.white,
+                  backgroundColor: Colors.blueAccent),
+              label: const Text('Restart Quiz'),
             )
           ],
         ),
